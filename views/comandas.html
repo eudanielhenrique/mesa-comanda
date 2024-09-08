@@ -23,17 +23,42 @@
     </div>
 
 
+
   </header>
   <main>
+    <div class="header">
     <div class="conteudo">
-      <h1>
-Comandas
-      </h1>
-      <p>
-        Aqui você pode visualizar todas as comandas abertas e fechadas, bem como adicionar novas comandas e gerenciar as existentes.
-      </p>
-      <a href="#"> Ver comandas ></a>
+      <span class="button" onclick="addComanda()"><i class="fa fa-plus-circle" aria-hidden="true"></i> Nova Comanda</i>
+      </span>
+      <p class="list">Comanda: Carlos</p>
+    
     </div>
+
   </main>
 </body>
+
+<script>
+  // Atualizar o nome da comanda
+  const comandas = document.querySelector('p');
+  comandas.addEventListener('click', updateName);
+
+  function updateName() {
+    const name = prompt('Digite o nome do cliente');
+    comandas.textContent = `Comanda: ${name}`; ;
+  }
+
+// Adiciona uma nova comanda
+  function addComanda() {
+    const conteudo = document.querySelector('.conteudo');
+    const name = prompt('Digite o nome do cliente');
+    const newPara = document.createElement('p');
+
+    newPara.className = "list";
+    newPara.textContent = 'Comanda: ' + name;
+
+    conteudo.appendChild(newPara);
+    newPara.addEventListener('click', updateName);
+  }
+</script>
+
 </html>
